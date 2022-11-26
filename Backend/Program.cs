@@ -1,4 +1,12 @@
+using Backend.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("my");
+//Dependy Injection to Database
+builder.Services.AddDbContext<FinanceContext>(options =>{
+    options.UseMySql(connectionString,ServerVersion.AutoDetect(connectionString));
+});
 
 // Add services to the container.
 

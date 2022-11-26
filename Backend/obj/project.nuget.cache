@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hN7pOadxrciG9t3W+WHnnwzDtn/zl9MaN4OofoO5u250S7JnaOq8l/a0Mb7S/6O8ecSXnn/QpcJmpVPvs3Sn4A==",
+  "dgSpecHash": "BRQjK6p3OEeojBgpWfw0Gh++ZxPMYuThtLMdySNuAABox2wB2MFEkftlC8ZUI6VZjpdrB5kMDskVDTfEuMN+jA==",
   "success": true,
   "projectFilePath": "/home/lisbeth/Projects/FinanceApp/Backend/Backend.csproj",
   "expectedPackageFiles": [
@@ -24,6 +24,8 @@
     "/home/lisbeth/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "/home/lisbeth/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/home/lisbeth/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/home/lisbeth/.nuget/packages/mysqlconnector/2.2.0/mysqlconnector.2.2.0.nupkg.sha512",
+    "/home/lisbeth/.nuget/packages/pomelo.entityframeworkcore.mysql/7.0.0-alpha.1/pomelo.entityframeworkcore.mysql.7.0.0-alpha.1.nupkg.sha512",
     "/home/lisbeth/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "/home/lisbeth/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "/home/lisbeth/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

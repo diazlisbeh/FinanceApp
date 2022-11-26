@@ -9,16 +9,11 @@ public class User
     public string LastName { get; set; }
     public string Email { get; set; }
     public string Password{ get; set; }
+    public float Capital{ get; set; }
+    public Status Status {get;set;}
+    public virtual ICollection<Spend> Spends { get; set; }
+    public virtual ICollection<Budget> Budgets{ get; set; }
+    public virtual ICollection<Income> Incomes {get;set;}
 }
 
 
-/*
-id int Not null auto_increment,
-    `name` varchar(20) Not null,
-    last_name varchar(30) not null,
-    email varchar(50) not null,
-	`password` varchar(30) not null,
-    unique(id,email),
-    constraint PK_USER primary key (id,email)
-
-*/
