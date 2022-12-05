@@ -1,6 +1,8 @@
+using Backend.Filter;
 using Backend.Models;
 using Backend.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("my");
@@ -8,6 +10,13 @@ var connectionString = builder.Configuration.GetConnectionString("my");
 builder.Services.AddDbContext<FinanceContext>(options =>{
     options.UseMySql(connectionString,ServerVersion.AutoDetect(connectionString));
 });
+
+//Add Filters
+builder.Services.AddMvc(options =>{
+    options.Filters.Add<JsonExceptionFilter>();
+    // options.Filters.Add<RequiredHttpsOrCloseAttribute>();
+});
+
 
 builder.Services.AddScoped<IUserService, UserService>();
 // Add services to the container.
