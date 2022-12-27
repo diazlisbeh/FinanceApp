@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers
 { [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class UserController : ControllerBase
     {
         private IUserService _service;
@@ -21,6 +21,16 @@ namespace Backend.Controllers
             return Ok( _service.Register(userDto));
         }
 
+        [HttpGet]
+        public IActionResult GetAll (){
+            return Ok(_service.GetUsers());
+            
+        }
+        [HttpGet("{id}")]
+        public IActionResult Get([FromRoute] int  id)
+        {
+            return Ok(_service.GetUser(id));
+        }
 
 
     }

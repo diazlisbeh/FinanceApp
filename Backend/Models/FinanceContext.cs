@@ -5,6 +5,7 @@ namespace Backend.Models
 {
     public class FinanceContext : DbContext
     {
+// System.DBNull
 
 
         public DbSet<User> users {get;set;}
@@ -17,11 +18,13 @@ namespace Backend.Models
         protected override void OnModelCreating(ModelBuilder model){
             model.Entity<User>(catg =>{
                 catg.ToTable("users");
+                catg.HasKey(p => p.Id);
+                catg.Property(p => p.Id).HasColumnName("id").IsRequired();
                 catg.Property(p => p.Name).HasColumnName("name");
                 catg.Property(p => p.LastName).HasColumnName("last_name");
                 catg.Property(p => p.Email).HasColumnName("email");
                 catg.Property(p => p.Password).HasColumnName("password");
-                catg.Property(p => p.Capital).HasColumnName("capital");
+                //catg.Property(p => p.Capital).HasColumnName("capital");
                 catg.Property(p => p.Status).HasColumnName("status");
                 catg.Property(p => p.PasswordSalt).HasColumnName("passwordSalt");
                 

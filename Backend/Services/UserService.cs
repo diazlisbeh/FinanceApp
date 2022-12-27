@@ -1,5 +1,7 @@
 using System.Security.Cryptography;
 using Backend.Models;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Services;
 
@@ -10,6 +12,18 @@ public class UserService : IUserService
     public UserService(FinanceContext context){
         _context = context;
     }
+
+    public  async Task<IEnumerable<User>> GetUsers()
+    {   
+        var user = await _context.users.ToListAsync();
+        return user;
+    }
+    public  async Task<User> GetUser(int id)
+    {   
+        var user = await _context.users.FirstOrDefaultAsync(x => x.Id == id);
+        return user;
+    }
+
     public User Register(UserDto userDto)
 
     {

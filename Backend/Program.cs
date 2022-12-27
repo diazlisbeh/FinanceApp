@@ -2,6 +2,7 @@ using Backend.Filter;
 using Backend.Models;
 using Backend.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,10 @@ builder.Services.AddMvc(options =>{
     // options.Filters.Add<RequiredHttpsOrCloseAttribute>();
 });
 
+
+
+//Add Authorization
+//builder.Services.AddAuthentication(JwtBearerDefaults.Authentication)
 
 builder.Services.AddScoped<IUserService, UserService>();
 // Add services to the container.
