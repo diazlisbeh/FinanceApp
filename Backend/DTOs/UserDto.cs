@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
 
-namespace Backend.Models
+namespace Backend.DTOs
 {
-    public class UserDto
+    public class UserRegisterDto
     {
         public string Name{ get; set; }    
         public string Email {get;set;}

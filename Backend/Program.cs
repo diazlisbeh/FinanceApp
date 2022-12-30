@@ -4,6 +4,9 @@ using Backend.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.IdentityModel.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("my");
@@ -12,19 +15,30 @@ builder.Services.AddDbContext<FinanceContext>(options =>{
     options.UseMySql(connectionString,ServerVersion.AutoDetect(connectionString));
 });
 
-//Add Filters
-builder.Services.AddMvc(options =>{
+//Adding Filters
+builder.Services.AddMvc(options => {
     options.Filters.Add<JsonExceptionFilter>();
-    // options.Filters.Add<RequiredHttpsOrCloseAttribute>();
+    options.Filters.Add<RequiredHttpsOrCloseAttribute>();
+});
+
+//Add Authentication
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(
+            System.Text.Encoding.ASCII.GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value)
+        ),
+        ValidateIssuer = false,
+        ValidateAudience = false
+        
+
+
+    };
 });
 
 
-
-//Add Authorization
-//builder.Services.AddAuthentication(JwtBearerDefaults.Authentication)
-
 builder.Services.AddScoped<IUserService, UserService>();
-// Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -38,6 +52,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    IdentityModelEventSource.ShowPII = true; 
 }
 
 app.UseHttpsRedirection();
