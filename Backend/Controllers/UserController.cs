@@ -61,7 +61,15 @@ namespace Backend.Controllers
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(TokenDescription);
             return Ok(new{
-                token = tokenHandler.WriteToken(token)
+                token = tokenHandler.WriteToken(token),
+                userRepo.Name,
+                userRepo.LastName,
+                userRepo.Email,
+                userRepo.Status,
+                userRepo.Spends,
+                userRepo.Budgets,
+                userRepo.Incomes
+
             });
             
         }

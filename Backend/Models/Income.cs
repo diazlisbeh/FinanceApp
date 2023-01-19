@@ -6,6 +6,6 @@ namespace Backend.Models
         public float Amount{ get; set; }
         public int UserID{ get; set; }
         public DateTime DateIncome{ get; set; }
-        public virtual User User {get;set;}
+        public virtual User? User {get;set;}
     }
 }

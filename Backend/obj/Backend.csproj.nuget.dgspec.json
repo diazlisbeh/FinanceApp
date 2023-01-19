@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/home/lisbeth/Projects/FinanceApp/Backend/Backend.csproj": {}
+    "C:\\Users\\lizbe\\Projects\\FinanceApp\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "/home/lisbeth/Projects/FinanceApp/Backend/Backend.csproj": {
+    "C:\\Users\\lizbe\\Projects\\FinanceApp\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/lisbeth/Projects/FinanceApp/Backend/Backend.csproj",
+        "projectUniqueName": "C:\\Users\\lizbe\\Projects\\FinanceApp\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "/home/lisbeth/Projects/FinanceApp/Backend/Backend.csproj",
-        "packagesPath": "/home/lisbeth/.nuget/packages/",
-        "outputPath": "/home/lisbeth/Projects/FinanceApp/Backend/obj/",
+        "projectPath": "C:\\Users\\lizbe\\Projects\\FinanceApp\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\lizbe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lizbe\\Projects\\FinanceApp\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/lisbeth/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\lizbe\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -72,16 +71,11 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.7, 6.0.7]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -90,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
