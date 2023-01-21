@@ -1730,19 +1730,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lizbe\\.nuget\\packages\\": {}
+    "/home/lisbethd/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lizbe\\Projects\\FinanceApp\\Backend\\Backend.csproj",
+      "projectUniqueName": "/home/lisbethd/Projects/FinanceApp/Backend/Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "C:\\Users\\lizbe\\Projects\\FinanceApp\\Backend\\Backend.csproj",
-      "packagesPath": "C:\\Users\\lizbe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lizbe\\Projects\\FinanceApp\\Backend\\obj\\",
+      "projectPath": "/home/lisbethd/Projects/FinanceApp/Backend/Backend.csproj",
+      "packagesPath": "/home/lisbethd/.nuget/packages/",
+      "outputPath": "/home/lisbethd/Projects/FinanceApp/Backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lizbe\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/lisbethd/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -1812,7 +1812,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -12,8 +12,18 @@ public class IncomeController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult setIncome(string email, float amount){
-        return Ok(_service.Add(email,amount));
+    public IActionResult setIncome( string email, float amount){
+       
+        return Ok(_service.Add(email,amount));  
+    }
+
+    [HttpGet("GetAll")]
+    public IActionResult GetAll(){
+        return Ok(_service.GetAll());
+    }
+    [HttpGet("Get")]
+    public IActionResult Get(Guid id){
+        return Ok(_service.Get(id));
     }
 
 }
