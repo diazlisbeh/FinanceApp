@@ -15,11 +15,11 @@ public class User
     public decimal Capital{ get; set; }
     public Status Status {get;set;}
     // [JsonIgnore]
-    public virtual ICollection<Spend>? Spends { get; set; }
+    public virtual ICollection<Spend> Spends { get; set; }
     // [JsonIgnore]
-    public virtual ICollection<Budget>? Budgets { get; set; }
+    public virtual ICollection<Budget> Budgets { get; set; }
     // [JsonIgnore]
-     public virtual ICollection<Income>? Incomes {get;set;}
+     public virtual ICollection<Income> Incomes {get;set;}
 }
 
 

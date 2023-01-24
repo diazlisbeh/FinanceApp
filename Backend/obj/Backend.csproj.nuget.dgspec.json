@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/home/lisbethd/Projects/FinanceApp/Backend/Backend.csproj": {}
+    "/home/lisbeth/Projects/FinanceApp/Backend/Backend.csproj": {}
   },
   "projects": {
-    "/home/lisbethd/Projects/FinanceApp/Backend/Backend.csproj": {
+    "/home/lisbeth/Projects/FinanceApp/Backend/Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/lisbethd/Projects/FinanceApp/Backend/Backend.csproj",
+        "projectUniqueName": "/home/lisbeth/Projects/FinanceApp/Backend/Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "/home/lisbethd/Projects/FinanceApp/Backend/Backend.csproj",
-        "packagesPath": "/home/lisbethd/.nuget/packages/",
-        "outputPath": "/home/lisbethd/Projects/FinanceApp/Backend/obj/",
+        "projectPath": "/home/lisbeth/Projects/FinanceApp/Backend/Backend.csproj",
+        "packagesPath": "/home/lisbeth/.nuget/packages/",
+        "outputPath": "/home/lisbeth/Projects/FinanceApp/Backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/lisbethd/.nuget/NuGet/NuGet.Config"
+          "/home/lisbeth/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "/usr/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,13 +45,13 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.2, )"
             },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
@@ -71,11 +72,16 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.7, 6.0.7]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -84,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
         }
       }
     }

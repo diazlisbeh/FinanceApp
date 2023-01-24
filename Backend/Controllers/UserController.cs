@@ -8,6 +8,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
+using System.Text.Json.Serialization;
+
 
 namespace Backend.Controllers
 { [ApiController]
@@ -63,6 +65,7 @@ namespace Backend.Controllers
             return Ok(new{
                 token = tokenHandler.WriteToken(token),
                 userRepo.Name,
+                userRepo.Id,
                 userRepo.LastName,
                 userRepo.Email,
                 userRepo.Status,
@@ -71,6 +74,9 @@ namespace Backend.Controllers
                 userRepo.Incomes
 
             });
+
+            
+            
             
         }
 
