@@ -64,6 +64,13 @@ last_update,
 amount)
 values(1,new.id,now(),0);
 
+insert into FinanceApp.Categories  (Name,Description)
+values('Obligations','All the obligations'),
+('Transport','Spends in fuel, etc'),
+('Educations','Spends in online courses, university etc'),
+('Saving','Saving'),
+('Other','Other things');
+
 
 
 

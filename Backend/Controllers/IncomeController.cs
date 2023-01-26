@@ -1,5 +1,6 @@
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace Backend.Controllers;
 [ApiController]
@@ -7,8 +8,10 @@ namespace Backend.Controllers;
 public class IncomeController : ControllerBase
 {
     private IInconmeService _service;
-    public IncomeController(IInconmeService service){
+    private IConfiguration _config;
+    public IncomeController(IInconmeService service, IConfiguration config){
         _service = service;
+        _config = config;
     }
 
     [HttpPost]
@@ -26,4 +29,5 @@ public class IncomeController : ControllerBase
         return Ok(_service.Get(id));
     }
 
+  
 }

@@ -8,4 +8,5 @@ public interface IInconmeService{
     List<Income> GetAll();
 
     Income Get(Guid id);
+    List<Category> GetCategories();
 }

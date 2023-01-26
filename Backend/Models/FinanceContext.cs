@@ -1,20 +1,21 @@
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 
 namespace Backend.Models
 {
     public class FinanceContext : DbContext
     {
-// System.DBNull
-
-
+        private IConfiguration _config;
         public DbSet<User> users {get;set;}
         public DbSet<Category> Categories{get;set;}
         public DbSet<Spend> Spends{get;set;}
         public DbSet<Income> Incomes{get;set;}
         public DbSet<Budget> Budgets{get;set;}
-        public FinanceContext(DbContextOptions<FinanceContext> options) :base(options){}
-
+        public FinanceContext(DbContextOptions<FinanceContext> options, IConfiguration config) :base(options){
+            _config = config;
+        }
+      
         protected override void OnModelCreating(ModelBuilder model){
             model.Entity<User>(catg =>{
                 catg.ToTable("users");
