@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("my");
+var policy  = "WebPolicy";
 //Dependy Injection to Database
 builder.Services.AddDbContext<FinanceContext>(options =>{
     options.UseMySql(connectionString,ServerVersion.AutoDetect(connectionString));
@@ -34,7 +35,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
+//Add Cors
+builder.Services.AddCors(options =>{
+    options.AddPolicy(name: policy, policy=>{
+        // policy.WithOrigins("http://localhost:3000/");
+        policy.AllowAnyOrigin().
+        // WithMethods("GET","POST").
+        AllowAnyMethod().
+        AllowAnyHeader();
+    });
+});
 
+//Add Scopes
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IInconmeService,IncomeService>();
 builder.Services.AddScoped<ISpendService,SpendService>();
@@ -55,6 +67,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(policy);
 
 app.UseAuthentication();
 

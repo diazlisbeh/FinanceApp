@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { HashRouter, Route, Routes } from "react-router-dom";
+import {SignUp} from "./Pages/SignUp";
+import {Login} from "./Pages/Login";
+import {History} from "./Pages/History";
+import {Home} from "./Pages/Home";
+import {NotFound} from "./Pages/NotFound";
+import {Profile} from "./Pages/Profile";
+import { loginUser } from "./Utils/UserApi";
 
 function App() {
+ let user = {
+    email:"lizz@email.com",
+    password: "password"
+ }
+  useEffect(()=>{
+    loginUser(user)
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<SignUp/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/history" element={<History/>} />
+          <Route path="/home" element={<Home/>} />
+          <Route path="profile/" element={<Profile/>} />
+          <Route path="/Budget" element={<SignUp/>} />
+          <Route path="*" element={<NotFound/>} />
+        </Routes>
+      </HashRouter>
+    </>
   );
 }
 

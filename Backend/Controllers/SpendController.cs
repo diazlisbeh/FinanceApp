@@ -1,10 +1,11 @@
 using Backend.Models;
 using Backend.Services;
-
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
 namespace Backend.Controllers;
+[EnableCors("WebPolicy")]
 [ApiController]
 [Route("[controller]")]
 public class SpendController : ControllerBase

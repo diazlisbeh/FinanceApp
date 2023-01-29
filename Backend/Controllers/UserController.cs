@@ -9,10 +9,13 @@ using System.Security.Claims;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Cors;
 
 
 namespace Backend.Controllers
-{ [ApiController]
+{ 
+    [EnableCors("WebPolicy")]
+    [ApiController]
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
@@ -25,12 +28,14 @@ namespace Backend.Controllers
         }
 
         [HttpPost("register")]
+        [EnableCors]
         public IActionResult Register(UserRegisterDto userDto){
             
             return Ok( _service.Register(userDto));
         }
 
         [HttpGet]
+        // [EnableCors]
         public IActionResult GetAll (){
             return Ok(_service.GetUsers());
             
@@ -42,6 +47,7 @@ namespace Backend.Controllers
         }
 
         [HttpPost("login")]
+        
         public async Task<IActionResult> Login (UserLoginDto userLogin){
             var userRepo = await _service.Login(userLogin.email,userLogin.password);
             if(userRepo is null)return Unauthorized();
