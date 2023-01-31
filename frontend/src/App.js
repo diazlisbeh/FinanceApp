@@ -9,13 +9,13 @@ import {Profile} from "./Pages/Profile";
 import { loginUser } from "./Utils/UserApi";
 
 function App() {
- let user = {
-    email:"lizz@email.com",
-    password: "password"
- }
-  useEffect(()=>{
-    loginUser(user)
-  },[])
+//  let user = {
+    // email:"lizz@email.com",
+    // password: "password"
+//  }
+  // useEffect(()=>{
+    // loginUser(user)
+  // },[])
 
   return (
     <>
