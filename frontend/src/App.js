@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
-import {SignUp} from "./Pages/SignUp";
+import {SignUp} from "./Pages/SignUp.js";
 import {Login} from "./Pages/Login";
 import {History} from "./Pages/History";
 import {Home} from "./Pages/Home";
@@ -19,6 +19,7 @@ function App() {
 
   return (
     <>
+    <p className="text-xl italic">Hola</p>
       <HashRouter>
         <Routes>
           <Route path="/" element={<SignUp/>} />

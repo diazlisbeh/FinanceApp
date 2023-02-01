@@ -1,12 +1,12 @@
 import React from "react";
 import './SignUp.css';
 import { NavLink } from "react-router-dom";
-// import "../index.css"
+
 
 function SignUp(){
     return(
         <>
-        <h2 className="signup-title" >Sign Up</h2>
+        <h2 className="text-red italic" >Sign Up</h2>
         <form className="">
             <label htmlFor="name">Name</label>
             <input type="text"></input>
@@ -21,7 +21,7 @@ function SignUp(){
             <input type="password"></input>
 
             <button >Sign Up</button>
-            <p>Hava an Acount? <NavLink to="Login">Login</NavLink></p>
+            <p>Have an Acount? <NavLink to="Login">Login</NavLink></p>
         </form>
         </>
     )
