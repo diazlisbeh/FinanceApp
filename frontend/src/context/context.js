@@ -4,10 +4,10 @@ import login from "@/pages/api/Auth/login";
 
 const MyContext = React.createContext();
 
-function Provider(props) {
+function Provider({children}) {
     return(
         <MyContext.Provider value={{login}}>
-            {props.clidren}
+            {clidren}
         </MyContext.Provider>
     )
 }
