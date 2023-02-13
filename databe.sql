@@ -57,7 +57,7 @@ Create Table `FinanceApp`.`Budget`(
 
 Create trigger User_T_CreateFirstCapital 
 after insert on users for each row
-insert into `FinanceApp`.`Budget`
+insert into `FinanceApp`.`Budgets`
 (categoryID,
 userID,
 last_update,
@@ -65,7 +65,8 @@ amount)
 values(1,new.id,now(),0);
 
 insert into FinanceApp.Categories  (Name,Description)
-values('Obligations','All the obligations'),
+values('Pincipal', 'principal budget')
+('Obligations','All the obligations'),
 ('Transport','Spends in fuel, etc'),
 ('Educations','Spends in online courses, university etc'),
 ('Saving','Saving'),

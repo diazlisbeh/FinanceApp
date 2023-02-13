@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5h1iUyfpsa4ZuFqbfGeRbPqub5vweVz+j9NAt+gluTpd38vOZl6F8UsUjs9frEZ0FNS6nU4C7Z4RN+wHvp4Xgw==",
+  "dgSpecHash": "Mpt7T5WgCyjlK8ISUiib5VgA8J+3bVO3nY723eoCRr9bj4pi/FOqEA8M9md6Qz1dvK0rddGTDMHaZtLCWWeF2Q==",
   "success": true,
   "projectFilePath": "/home/lisbeth/Projects/FinanceApp/Backend/Backend.csproj",
   "expectedPackageFiles": [
@@ -43,8 +43,7 @@
     "/home/lisbeth/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/home/lisbeth/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512",
     "/home/lisbeth/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
-    "/home/lisbeth/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",
-    "/home/lisbeth/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.7/microsoft.aspnetcore.app.ref.6.0.7.nupkg.sha512"
+    "/home/lisbeth/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

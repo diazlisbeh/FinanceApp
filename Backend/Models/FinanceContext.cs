@@ -30,6 +30,10 @@ namespace Backend.Models
                 catg.Property(p => p.PasswordSalt).HasColumnName("passwordSalt");
                 
             });
+
+            model.Entity<Budget>(b =>{
+                b.ToTable("Budgets");
+            });
         }
         
     }

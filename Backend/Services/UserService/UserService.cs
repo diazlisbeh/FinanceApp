@@ -25,7 +25,7 @@ public class UserService : IUserService
         return user;
     }
 
-    public User Register(UserRegisterDto userDto)
+    public User  Register(UserRegisterDto userDto)
     {
         CreatePassword(userDto.password,out byte[] passwordHash, out byte[] passwordSalt);
         var user = new User(){
@@ -33,7 +33,9 @@ public class UserService : IUserService
             LastName = userDto.LastName,
             Email = userDto.Email,
             Password = passwordHash,
-            PasswordSalt = passwordSalt
+            PasswordSalt = passwordSalt,
+            Capital = 0
+            
         };
 
         _context.users.Add(user);

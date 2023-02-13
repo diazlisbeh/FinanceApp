@@ -2,7 +2,13 @@ using System.Text.Json.Serialization;
 namespace Backend.Models;
 public class User 
 {
-    [JsonIgnore]
+    public User()
+    {
+        Spends = new HashSet<Spend>();
+        Budgets = new HashSet<Budget>();
+        Incomes = new HashSet<Income>();
+    }
+    
     public int Id { get; set; }
     public string? Name { get; set; } 
     public string? LastName { get; set; }
