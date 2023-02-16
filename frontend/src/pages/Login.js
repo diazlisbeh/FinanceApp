@@ -1,11 +1,18 @@
 import React from "react";
-import { Context } from "@/context/context";
+import { MyContext } from "@/context/context";
 function Login() {
-    const {login} = React.useContext(Context)
+    const {login,userData,setUserData} = React.useContext(MyContext)
+    const user = {email:'',password:''}
     return(
         <>
         <h1>Login</h1>
-        <button type="button" onClick={()=>login()}>Click me</button>
+        <form>
+            <label>Name</label>
+            <input type="text" onChange={(e) => user.email=e.target.value}></input>
+            <label>Password</label>
+            <input type="password" onChange={(e) => user.password=e.target.value}></input>
+        </form>
+        <button type="button" onClick={()=>login(user)}>Click me</button>
         </>
     )
 }

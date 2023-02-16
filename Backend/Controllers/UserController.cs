@@ -31,7 +31,8 @@ namespace Backend.Controllers
         [EnableCors]
         public IActionResult Register(UserRegisterDto userDto){
             
-            return Ok( _service.Register(userDto));
+             _service.Register(userDto);
+             return StatusCode(301);
         }
 
         [HttpGet]

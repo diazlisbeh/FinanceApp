@@ -1,11 +1,18 @@
+import { MyContext } from "@/context/context"
+import React, { useContext } from "react"
 
 
-
-
-const login =async () => {
-    await fetch(API_URL)
+const login =async (user) => {
+    const {userLoged,setUserLoged} = useContext(MyContext);
+    await fetch("https://localhost:7091/User/login/",{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(user)
+    })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => setUserLoged(data))
 }
 
 

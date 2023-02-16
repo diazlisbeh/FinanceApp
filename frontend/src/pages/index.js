@@ -7,12 +7,13 @@ import { MyContext } from '@/context/context'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const {login } = useContext(MyContext);
 export default function Home() {
+const {login}  = useContext(MyContext);
+
   return (
     <>
     <p>Vamo a ver klk</p>
-    <button onClick={() => login()}></button>
+    <button onClick={() => login()}>dale bro</button>
     </>
   )
 }
