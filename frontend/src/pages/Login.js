@@ -6,7 +6,7 @@ import useAuth from "@/hooks/useAuth";
 function useLogin() {
   //   const { login, userData, setUserData } = React.useContext(MyContext);
   // const user = { email: "", password: "" };
-  //   const router = useRouter();
+    const router = useRouter();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -14,6 +14,7 @@ function useLogin() {
 
   const onLogin = async () => {
     await login(email, password);
+    router.push('/Home')
   };
 
   return (

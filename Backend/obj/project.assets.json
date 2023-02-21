@@ -1730,19 +1730,19 @@
     ]
   },
   "packageFolders": {
-    "/home/lisbeth/.nuget/packages/": {}
+    "/home/lisbethd/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/lisbeth/Projects/FinanceApp/Backend/Backend.csproj",
+      "projectUniqueName": "/home/lisbethd/Projects/FinanceApp/Backend/Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "/home/lisbeth/Projects/FinanceApp/Backend/Backend.csproj",
-      "packagesPath": "/home/lisbeth/.nuget/packages/",
-      "outputPath": "/home/lisbeth/Projects/FinanceApp/Backend/obj/",
+      "projectPath": "/home/lisbethd/Projects/FinanceApp/Backend/Backend.csproj",
+      "packagesPath": "/home/lisbethd/.nuget/packages/",
+      "outputPath": "/home/lisbethd/Projects/FinanceApp/Backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/lisbeth/.nuget/NuGet/NuGet.Config"
+        "/home/lisbethd/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -1813,7 +1813,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.405/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
