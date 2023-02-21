@@ -2,9 +2,11 @@ import { MyContext } from "@/context/context"
 import React, { useContext } from "react"
 
 
-const login =async (user) => {
-    const {userLoged,setUserLoged} = useContext(MyContext);
-    await fetch("https://localhost:7091/User/login/",{
+function useLogin (user) {
+    // const {userData,setUserData} = useContext(MyContext);
+    let userData;
+   
+    fetch("https://localhost:7091/User/login/",{
         method:'POST',
         headers:{
             'Content-Type':'application/json'
@@ -12,8 +14,11 @@ const login =async (user) => {
         body:JSON.stringify(user)
     })
     .then(res => res.json())
-    .then(data => setUserLoged(data))
+    .then(data => userData = data)
+  
+     
+    
 }
 
 
-export default login
+export default useLogin

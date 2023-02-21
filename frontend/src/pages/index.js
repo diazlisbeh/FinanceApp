@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function inde() {
   const router = useRouter();
 const {login}  = useContext(MyContext);
 

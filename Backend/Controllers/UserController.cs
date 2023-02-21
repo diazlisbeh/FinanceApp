@@ -72,6 +72,7 @@ namespace Backend.Controllers
             return Ok(new{
                 token = tokenHandler.WriteToken(token),
                 userRepo.Name,
+                userRepo.Capital,
                 userRepo.Id,
                 userRepo.LastName,
                 userRepo.Email,
