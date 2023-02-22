@@ -2,10 +2,12 @@ import { MyContext } from "@/context/context";
 import React from "react";
 import { useContext } from "react";
 import Link from "next/link";
-import { Clicker_Script } from "@next/font/google";
 import { useRouter } from 'next/router';
+import {register} from "@/hooks/useResgister"
+
+
 export default function SignUp(){
-    const {register} = useContext(MyContext);
+//    const {register} = useContext(MyContext);
     const router = useRouter()
     const user = {
         name:'',

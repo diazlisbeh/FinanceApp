@@ -23,6 +23,7 @@ public class User
     public virtual ICollection<Budget> Budgets { get; set; }
     // [JsonIgnore]
      public virtual ICollection<Income> Incomes {get;set;}
+     public virtual ICollection<Movement> Movements {get;set;}
 }
 
 

@@ -13,11 +13,7 @@ export default function Home(){
             <div><ion-icon name="person-circle-outline"></ion-icon></div>
         </header>
         <button onClick={() => console.log(userData)}>hollllaa</button>
-        {/* <div>{userData.capital}</div> */}
-        {/* {userData.spends.map((spend =>{ */}
-             {/* <div></div> */}
-        {/* }))} */}
-{/*          */}
+        <div>{userData.capital}</div>
         </>
     )
 }
