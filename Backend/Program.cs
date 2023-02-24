@@ -1,6 +1,8 @@
-using Backend.Filter;
-using Backend.Models;
-using Backend.Services;
+using Backend.DSL.Filter;
+using Backend.DAL.Models;
+using Backend.DAL.Interface;
+using Backend.BLL.Services;
+using Backend.BLL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
