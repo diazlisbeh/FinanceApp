@@ -5,10 +5,8 @@ public class User
 {
     public User()
     {
-        Spends = new HashSet<Spend>();
         Budgets = new HashSet<Budget>();
-        Incomes = new HashSet<Income>();
-        Movements = new HashSet<Movement>();
+        Transactions = new HashSet<Transaction>();
     }
     
     public int Id { get; set; }
@@ -20,12 +18,10 @@ public class User
     public decimal Capital{ get; set; }
     public Status Status {get;set;}
     // [JsonIgnore]
-    public virtual ICollection<Spend>? Spends { get; set; }
     // [JsonIgnore]
     public virtual ICollection<Budget> Budgets { get; set; }
     // [JsonIgnore]
-     public virtual ICollection<Income> Incomes {get;set;}
-     public virtual ICollection<Movement> Movements {get;set;}
+     public virtual ICollection<Transaction> Transactions {get;set;}
 }
 
 

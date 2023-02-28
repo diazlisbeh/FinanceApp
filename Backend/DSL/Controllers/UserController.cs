@@ -13,7 +13,7 @@ using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Cors;
 
 
-namespace Backend.BLL.Controllers
+namespace Backend.DSL.Controller
 { 
     [EnableCors("WebPolicy")]
     [ApiController]
@@ -30,10 +30,11 @@ namespace Backend.BLL.Controllers
 
         [HttpPost("register")]
         [EnableCors]
-        public IActionResult Register(UserRegisterDto userDto){
+        public async Task<IActionResult> Register(UserRegisterDto userDto){
             
-             _service.Register(userDto);
-             return StatusCode(301);
+            var user = await _service.Register(userDto);
+            if(user is null) return StatusCode(409); //duplicate record
+            return StatusCode(201);
         }
 
         [HttpGet]
@@ -43,9 +44,10 @@ namespace Backend.BLL.Controllers
             
         }
         [HttpGet("{id}")]
-        public IActionResult Get([FromRoute] int  id)
+        public async Task<IActionResult> GetAsync([FromRoute] int  id)
         {
-            return Ok(_service.GetUser(id));
+            var user = await _service.GetUser(id);
+            return  Ok(user);
         }
 
         [HttpPost("login")]
@@ -78,9 +80,8 @@ namespace Backend.BLL.Controllers
                 userRepo.LastName,
                 userRepo.Email,
                 userRepo.Status,
-                userRepo.Spends,
                 userRepo.Budgets,
-                userRepo.Incomes
+                userRepo.Transactions
 
             });
 

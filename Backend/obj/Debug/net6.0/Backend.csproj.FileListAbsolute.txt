@@ -174,3 +174,5 @@ C:/Users/lizbe/Projects/FinanceApp/Backend/obj/Debug/net6.0/ref/Backend.dll
 /home/lisbethd/Projects/FinanceApp/Backend/obj/Debug/net6.0/Backend.pdb
 /home/lisbethd/Projects/FinanceApp/Backend/obj/Debug/net6.0/Backend.genruntimeconfig.cache
 /home/lisbethd/Projects/FinanceApp/Backend/obj/Debug/net6.0/ref/Backend.dll
+/home/lisbeth/Projects/FinanceApp/Backend/bin/Debug/net6.0/AutoMapper.dll
+/home/lisbeth/Projects/FinanceApp/Backend/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "Mpt7T5WgCyjlK8ISUiib5VgA8J+3bVO3nY723eoCRr9bj4pi/FOqEA8M9md6Qz1dvK0rddGTDMHaZtLCWWeF2Q==",
+  "dgSpecHash": "CFNpsYB6gPoYMPNBSmAZ8kHqQWYbqSebDT4nDKJKkhlhySJHArV1wcMI++psKNeRXWP6wymOBeP+c0NaeP8sqg==",
   "success": true,
   "projectFilePath": "/home/lisbeth/Projects/FinanceApp/Backend/Backend.csproj",
   "expectedPackageFiles": [
+    "/home/lisbeth/.nuget/packages/automapper/12.0.0/automapper.12.0.0.nupkg.sha512",
+    "/home/lisbeth/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.0/automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "/home/lisbeth/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/lisbeth/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/6.0.12/microsoft.aspnetcore.authentication.jwtbearer.6.0.12.nupkg.sha512",
-    "/home/lisbeth/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
+    "/home/lisbeth/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/home/lisbeth/.nuget/packages/microsoft.entityframeworkcore/7.0.2/microsoft.entityframeworkcore.7.0.2.nupkg.sha512",
     "/home/lisbeth/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.2/microsoft.entityframeworkcore.abstractions.7.0.2.nupkg.sha512",
     "/home/lisbeth/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.2/microsoft.entityframeworkcore.analyzers.7.0.2.nupkg.sha512",

@@ -4,10 +4,11 @@ namespace Backend.DAL.Interface;
 
 public interface IUserService{
 
-    public User Register(UserRegisterDto userDto);
+    public Task<User> Register(UserRegisterDto userDto);
 
     // public List<User> GetUsers();
-     List<User> GetUsers();
+    List<User> GetUsers();
     Task<User>  GetUser(int id);
     Task<User> Login (string email, string password);
+
 }

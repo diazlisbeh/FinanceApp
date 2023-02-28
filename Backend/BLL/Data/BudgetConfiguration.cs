@@ -26,7 +26,8 @@ public class BudgetConfiguration : IEntityTypeConfiguration<Budget>
         builder.HasOne(p => p.User)
         .WithMany(p => p.Budgets)
         .HasForeignKey(p => p.UserID)
-        .OnDelete(DeleteBehavior.NoAction);
+        .OnDelete(DeleteBehavior.NoAction)
+        .HasConstraintName("Fk_budget_userid");
 
     }
 }

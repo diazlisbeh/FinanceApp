@@ -18,6 +18,9 @@ builder.Services.AddDbContext<FinanceContext>(options =>{
     options.UseMySql(connectionString,ServerVersion.AutoDetect(connectionString));
 });
 
+//Auto Mapper
+builder.Services.AddAutoMapper(typeof(Program));
+
 //Adding Filters
 builder.Services.AddMvc(options => {
     options.Filters.Add<JsonExceptionFilter>();
@@ -50,8 +53,7 @@ builder.Services.AddCors(options =>{
 
 //Add Scopes
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IInconmeService,IncomeService>();
-builder.Services.AddScoped<ISpendService,SpendService>();
+builder.Services.AddScoped<ITransactionService, TransactionService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

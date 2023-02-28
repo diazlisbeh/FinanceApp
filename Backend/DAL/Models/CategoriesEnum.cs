@@ -3,10 +3,11 @@ namespace Backend.DAL.Models
 {
     public enum CategoriesEnum
     {
-        Obligations,
-        Transport,
-        Educations,
-        Saving,
-        Other
+        Principal =1,
+        Obligations =2,
+        Transport =3,
+        Educations =4,
+        Saving =5,
+        Other =6
     }
 }

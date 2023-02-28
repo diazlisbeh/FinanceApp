@@ -21,28 +21,34 @@ public class UserService : IUserService
         List<User> user =  _context.users.ToList();
         return user;
     }
-    public  async Task<User> GetUser(int id)
+    public async  Task<User> GetUser(int id)
     {   
-        var user = await _context.users.FirstOrDefaultAsync(x => x.Id == id);
-        return user;
+        return  await _context.users.SingleOrDefaultAsync  (x => x.Id == id);
+        
     }
 
-    public User  Register(UserRegisterDto userDto)
+    public async Task<User>  Register(UserRegisterDto userDto)
     {
+        var exist = _context.users.Any(p => p.Email == userDto.Email);
+
+        if(exist){
+            return null;
+        }
+
         CreatePassword(userDto.password,out byte[] passwordHash, out byte[] passwordSalt);
         var user = new User(){
             Name= userDto.Name,
             LastName = userDto.LastName,
-            Email = userDto.Email,
+            Email = userDto.Email.ToLower(),
             Password = passwordHash,
             PasswordSalt = passwordSalt,
             Capital = 0
             
         };
 
-        _context.users.Add(user);
-        _context.SaveChanges();
-        return user;
+        await _context.users.AddAsync(user);
+        await _context.SaveChangesAsync();
+        return  user;
     }
 
 

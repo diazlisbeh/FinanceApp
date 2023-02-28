@@ -15,8 +15,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.Property(p => p.Name).HasColumnName("name");
         builder.Property(p => p.Email).HasColumnName("email");
-        builder.Property(p => p.PasswordSalt).HasColumnName("passwordSalt").HasColumnType("byte");
-        builder.Property(p => p.Password).HasColumnName("password").HasColumnType("byte");
+        builder.Property(p => p.PasswordSalt).HasColumnName("passwordSalt");
+        builder.Property(p => p.Password).HasColumnName("password");
         builder.Property(p => p.LastName).HasColumnName("lastName");
         builder.Property(p => p.Capital).HasColumnName("capital");
         builder.Property(p => p.Status).HasColumnName("status");
