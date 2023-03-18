@@ -1,22 +1,31 @@
+"use client";
+
 import { MyContext } from "@/context/context";
-import useTrasaction from "@/hooks/Transactions";
-import GetTransactions from "@/hooks/Transactions";
-import React, { useContext, useEffect } from "react";
+//import useTrasaction from "@/hooks/Transactions";
+//import GetTransactions from "@/hooks/Transactions";
+import React, { useContext, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
+//import { getCookies, getCookie, setCookies, removeCookies } from 'cookies-next';
+//import CryptoJS from 'crypto-js';
 
 
 export default function Home(){
 
     const {userData,transaction,setUserData} = useContext(MyContext);
+    const [user, setUser] = useState()
     const [cookies,setCookies] = useCookies(['user'])
-    const {GetTransactions} = useTrasaction();
+   // const {GetTransactions} = useTrasaction();
 
-    // useEffect(()=>{
+     useEffect(()=>{
         // GetTransactions(cookies.user.id);
         // console.log(cookies.transaction)
-        // console.log(cookies.user)
+       // console.log(user)
         // console.log(userData)
-    // },[]);
+        setUserData(cookies.user)
+     },[]);
+
+    //const decryptedValue = CryptoJS.AES.decrypt(getCookies('user').user, 'user').toString(CryptoJS.enc.Base64)
+
 
     return(
         <>
@@ -24,8 +33,10 @@ export default function Home(){
             <div>FinanceApp</div>
             <div><ion-icon name="person-circle-outline"></ion-icon></div>
         </header>
+        {/* <button onClick={() => console.log(console.log(getCookies(user).user))}>hollllaa</button> */}
         <button onClick={() => console.log(cookies.user)}>hollllaa</button>
-        <div>{cookies.user.capital}</div>
+        {/* <div>{ typeof window == "undefined" ? "hoad": <p>cookies.user.name</p>}</div> */}
+        <div>{ userData.name}</div>
 
         <div>
             {/* {cookies.transaction.map(t => {
@@ -39,3 +50,14 @@ export default function Home(){
         </>
     )
 }
+
+// Home.getInitialProps = ()=> {
+//    const user = getCookies('user')
+    // return { 
+        // props:{
+            // user:"hola"
+// 
+        // }
+    // }
+    
+// }
