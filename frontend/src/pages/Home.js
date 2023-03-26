@@ -1,63 +1,54 @@
-"use client";
-
 import { MyContext } from "@/context/context";
-//import useTrasaction from "@/hooks/Transactions";
-//import GetTransactions from "@/hooks/Transactions";
 import React, { useContext, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
-//import { getCookies, getCookie, setCookies, removeCookies } from 'cookies-next';
-//import CryptoJS from 'crypto-js';
-
+import useTransactions  from "../hooks/useTransactions";
 
 export default function Home(){
 
-    const {userData,transaction,setUserData} = useContext(MyContext);
-    const [user, setUser] = useState()
+    const {userData,setUserData,transaction} = useContext(MyContext);
     const [cookies,setCookies] = useCookies(['user'])
-   // const {GetTransactions} = useTrasaction();
+    const {getTransactions,loaded,error} = useTransactions();
+  
+    useEffect(() => {
+        setUserData(cookies.user) 
+    }, []);
 
-     useEffect(()=>{
-        // GetTransactions(cookies.user.id);
-        // console.log(cookies.transaction)
-       // console.log(user)
-        // console.log(userData)
-        setUserData(cookies.user)
-     },[]);
-
-    //const decryptedValue = CryptoJS.AES.decrypt(getCookies('user').user, 'user').toString(CryptoJS.enc.Base64)
-
-
+    useEffect(() => {
+        getTransactions(cookies.user.id)
+        console.log(transaction)
+        console.log(loaded)
+    },[loaded])
+    
     return(
         <>
         <header>
-            <div>FinanceApp</div>
-            <div><ion-icon name="person-circle-outline"></ion-icon></div>
+            <nav className="container none flex justify-between mb-5">
+                <div className="pt-2 pl-2">FinanceApp</div>
+                <div className="pt-2 pr-2 "><ion-icon name="person-circle-outline" className="text-lg"></ion-icon></div>
+            </nav>
+            <div className="flex justify-center">{ userData.capital}</div>
         </header>
-        {/* <button onClick={() => console.log(console.log(getCookies(user).user))}>hollllaa</button> */}
-        <button onClick={() => console.log(cookies.user)}>hollllaa</button>
-        {/* <div>{ typeof window == "undefined" ? "hoad": <p>cookies.user.name</p>}</div> */}
-        <div>{ userData.name}</div>
-
-        <div>
-            {/* {cookies.transaction.map(t => {
-                <div>
-                    <div>{t.porpuse}</div>
-                    <div>{t.amount}</div>
+        
+        <section>
+        
+            {loaded &&   (
+                <div className="contaner flex flex-col">
+                    {transaction.map((p) => (
+                        <div key={p.transactionID} className="flex justify-around">
+                            <div>{p.amount}</div>
+                            <div>{p.porpuse}</div>
+                        </div>
+                    ))}
                 </div>
-            })} */}
-            {/* {transaction[0].amoun} */}
-        </div>
+            )}
+        </section>
+
+        <footer className="">
+            <div><ion-icon name="add-circle-outline"></ion-icon></div>
+            <div><ion-icon name="timer-outline"></ion-icon></div>
+            <div><ion-icon name="wallet-outline"></ion-icon></div>
+        </footer>
+      
         </>
     )
 }
-
-// Home.getInitialProps = ()=> {
-//    const user = getCookies('user')
-    // return { 
-        // props:{
-            // user:"hola"
-// 
-        // }
-    // }
-    
-// }
