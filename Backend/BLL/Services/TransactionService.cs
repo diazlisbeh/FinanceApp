@@ -17,6 +17,7 @@ public class TransactionService : ITransactionService
     }
     public List<Transaction> GetAll(int Id)
     {
+         
         return  _context.Transactions.Where(p => p.UserID == Id).ToList();
     }
 

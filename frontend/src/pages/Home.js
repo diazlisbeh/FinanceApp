@@ -2,22 +2,43 @@ import { MyContext } from "@/context/context";
 import React, { useContext, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import useTransactions  from "../hooks/useTransactions";
+import Modal from "@/Components/Modal";
+import AddForm from "@/context/AddForm";
+import { useRouter } from "next/router";
+
+
 
 export default function Home(){
 
     const {userData,setUserData,transaction} = useContext(MyContext);
     const [cookies,setCookies] = useCookies(['user'])
     const {getTransactions,loaded,error} = useTransactions();
-  
+    const [isOpen, setIsOpen] = useState(false);
+    const router = useRouter();
+
+    const handleClose = () =>{
+        if(isOpen) setIsOpen(false)
+        else setIsOpen(true)
+    }
+
     useEffect(() => {
-        setUserData(cookies.user) 
+        if(typeof cookies.user == 'undefined'){
+            router.push('/Login')
+        }else setUserData(cookies.user) 
+
     }, []);
 
     useEffect(() => {
+        if(typeof cookies.user == 'undefined'){
+            router.push('/Login')
+        }else{
         getTransactions(cookies.user.id)
         console.log(transaction)
         console.log(loaded)
+        }
     },[loaded])
+
+    
     
     return(
         <>
@@ -44,10 +65,15 @@ export default function Home(){
         </section>
 
         <footer className="">
-            <div><ion-icon name="add-circle-outline"></ion-icon></div>
+            <div onClick={handleClose}><ion-icon name="add-circle-outline"></ion-icon></div>
             <div><ion-icon name="timer-outline"></ion-icon></div>
             <div><ion-icon name="wallet-outline"></ion-icon></div>
         </footer>
+
+        <Modal isOpen={isOpen}
+               handleClose={handleClose}>
+            <AddForm handleModal={handleClose}/>
+        </Modal>
       
         </>
     )

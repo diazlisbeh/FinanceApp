@@ -26,7 +26,10 @@ public class TransactionController : ControllerBase{
 
         if(transactions is null ){
             return NoContent();
-        }else return Ok(transactions);
+        }else {
+            
+            return Ok(transactions);
+        };
 
     }
 
