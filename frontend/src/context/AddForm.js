@@ -3,9 +3,10 @@ import React, { useEffect,useContext,useState } from "react";
 import { MyContext } from "./context";
 import useTransactions from "@/hooks/useTransactions";
 import { uuid } from "@/utils/generateUUID";
+import { crearFecha } from "@/utils/generateDate";
 
 function AddForm({handleModal}){
-    const {categories} = useContext(MyContext);
+    const {categories,userData} = useContext(MyContext);
     const {getCategories,load} = useCategories();
     const {postTransaction} = useTransactions();
     
@@ -24,7 +25,17 @@ function AddForm({handleModal}){
     },[load,categories])
 
     const post = () =>{
-        transaction
+        const fecha = new Date();
+        if(typeof userData.id != 'number'){
+            alert("The user value is indefinido")
+            return;
+        }
+        transaction={...transaction,transactionID:uuid()}
+        transaction={...transaction,userID:userData.id}
+        transaction=(...transaction,date:fecha.S)
+
+
+
     }
 
     return(
