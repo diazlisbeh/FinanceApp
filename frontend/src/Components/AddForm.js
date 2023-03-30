@@ -1,6 +1,6 @@
 import { useCategories } from "@/hooks/useCategories";
 import React, { useEffect,useContext,useState } from "react";
-import { MyContext } from "./context";
+import { MyContext } from "../context/context";
 import useTransactions from "@/hooks/useTransactions";
 import { uuid } from "@/utils/generateUUID";
 import { crearFecha } from "@/utils/generateDate";

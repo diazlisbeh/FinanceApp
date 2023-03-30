@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import useTransactions  from "../hooks/useTransactions";
 import Modal from "@/Components/Modal";
-import AddForm from "@/context/AddForm";
+import AddForm from "@/Components/AddForm";
 import { useRouter } from "next/router";
 
 
@@ -38,15 +38,12 @@ export default function Home(){
         }
     },[loaded])
 
-
-    
-    
     return(
         <>
         <header>
             <nav className="container none flex justify-between mb-5">
                 <div className="pt-2 pl-2">FinanceApp</div>
-                <div className="pt-2 pr-2 "><ion-icon name="person-circle-outline" className="text-lg"></ion-icon></div>
+                <div className="pt-2 pr-2 " onClick={()=> router.push('/Profile')}><ion-icon name="person-circle-outline" className="text-lg"></ion-icon></div>
             </nav>
             <div className="flex justify-center">{ userData.capital}</div>
         </header>
@@ -67,7 +64,7 @@ export default function Home(){
 
         <footer className="">
             <div onClick={handleClose}><ion-icon name="add-circle-outline"></ion-icon></div>
-            <div><ion-icon name="timer-outline"></ion-icon></div>
+            <div onClick={()=> router.push('/History')}><ion-icon name="timer-outline"></ion-icon></div>
             <div><ion-icon name="wallet-outline"></ion-icon></div>
         </footer>
 
