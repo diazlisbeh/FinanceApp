@@ -10,6 +10,7 @@ function Provider({ children }) {
   const [isLogged, setIsLogged] = useState(false);
   const [transaction, setTransaction] = useState({});
   const [cookies, setCookies] = useCookies(['user']); 
+  const [categories, setCategories] = useState();
 
   return <MyContext.Provider value={{ userData,
                                     setUserData,
@@ -18,7 +19,9 @@ function Provider({ children }) {
                                   isLogged,
                                 setIsLogged,
                               cookies,
-                            setCookies }}>{children}</MyContext.Provider>;
+                            setCookies,
+                            categories,
+                            setCategories }}>{children}</MyContext.Provider>;
 }
 
 export { Provider, MyContext };

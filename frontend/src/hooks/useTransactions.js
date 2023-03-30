@@ -33,12 +33,35 @@ export default function useTransactions(){
           setLoaded(true)
           console.log(data)
           
-      } catch(err){
-        setError(err)
-        console.log(err)
+        } 
+        catch(err){
+          setError(err)
+          console.log(err)
+        }
       }
     }
-    }   
-  return {getTransactions,loaded,error}
+    
+    const postTransaction= async(transaction) =>{
+      try{
+        const responseCode = await fetch('https://localhost:7091/Transaction',{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body:JSON.stringify (transaction),
+        })
+
+        if(!responseCode.ok){
+          alert("Ha ocurrido un error")
+          throw new Error `Ha ocurrido un error: ${responseCode.status}`
+        }
+      }catch(err){
+        console.log(err)
+      }
+
+    }
+
+
+  return {getTransactions,loaded,error,postTransaction}
 }
 
