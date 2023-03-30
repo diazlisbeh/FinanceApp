@@ -24,18 +24,18 @@ function AddForm({handleModal}){
         getCategories()
     },[load,categories])
 
-    const post = () =>{
-        const fecha = new Date();
+    const post =async () =>{
+       // const fecha = Date.now().toString();
         if(typeof userData.id != 'number'){
             alert("The user value is indefinido")
             return;
         }
         transaction={...transaction,transactionID:uuid()}
         transaction={...transaction,userID:userData.id}
-        transaction=(...transaction,date:fecha.S)
+        transaction={...transaction,date: Date.now().toString()}
 
-
-
+        await postTransaction(transaction)
+        handleModal();
     }
 
     return(
@@ -53,6 +53,7 @@ function AddForm({handleModal}){
             <button onClick={() => transaction={...transaction,type:0}}>Income</button>
             <button onClick={() => transaction={...transaction,type:1}}>Spend</button>
             <button onClick={handleModal} className="bg-black">Cancel</button>
+            <button onClick={post} className="bg-black">Save</button>
             
         </form>
     )
