@@ -42,7 +42,7 @@ public class TransactionController : ControllerBase{
         }else return Ok(transaction);
     }
 
-    [HttpPost]
+    [HttpPost("create")]
     public async Task<IActionResult> Create(TransactionDto transaction){
          
         return Ok( await _service.Create(transaction)); 

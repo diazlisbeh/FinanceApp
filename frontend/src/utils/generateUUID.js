@@ -1,5 +1,9 @@
+
+
+
 const uuid = () => {
-    let d = new Date().getTime();
+    // let d = new Date().getTime();
+    let d = 1680477327610;
     if (typeof performance !== 'undefined' && typeof performance.now === 'function'){
       d += performance.now(); // use high-precision timer if available
     }

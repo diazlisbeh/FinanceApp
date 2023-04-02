@@ -28,7 +28,7 @@ public class TransactionService : ITransactionService
 
     public async Task<TransactionDto> Create(TransactionDto transactionDto){
         var transaction = new Transaction(){
-            TransactionID = Guid.NewGuid(),
+            TransactionID = transactionDto.TransactionID,
             Amount = transactionDto.Amount,
             CategoryID = transactionDto.CategoryId,
             UserID = transactionDto.UserID,

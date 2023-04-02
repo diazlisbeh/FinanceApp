@@ -8,52 +8,57 @@ import { crearFecha } from "@/utils/generateDate";
 function AddForm({handleModal}){
     const {categories,userData} = useContext(MyContext);
     const {getCategories,load} = useCategories();
+    
+    const [transactionID, setTransactioID] = useState();
+    const [amount, setAmount] = useState();
+    const [categoryId, setCategoryId] = useState();
+    const [userID, setUserID] = useState();
+    const [date, setDate] = useState();
+    const [porpuse, setPorpuse] = useState();
+    const [Type, setType] = useState();
     const {postTransaction} = useTransactions();
     
-    let transaction = {
-        transactionID,
-        amount,
-        categoryId,
-        userID,
-        date,
-        porpuse,
-        type
-      };
-
     useEffect(()=>{
         getCategories()
-    },[load,categories])
+
+        setTransactioID(uuid())
+        setUserID(userData.id)
+        setDate(crearFecha())
+
+        
+    },[load])
 
     const post =async () =>{
-       // const fecha = Date.now().toString();
+   
         if(typeof userData.id != 'number'){
             alert("The user value is indefinido")
             return;
         }
-        transaction={...transaction,transactionID:uuid()}
-        transaction={...transaction,userID:userData.id}
-        transaction={...transaction,date: Date.now().toString()}
 
-        await postTransaction(transaction)
+        setTransactioID(uuid())
+        setUserID(userData.id)
+        setDate(Date.now())
+        
+        await postTransaction(transactionID,amount,categoryId,userID,date,porpuse,Type)
         handleModal();
     }
 
     return(
         <form>
             <label>Porpuse</label>
-            <input type="text" placeholder="Add text" onChange={(e)=> transaction={...transaction,porpuse:e.target.value}}></input>
+            <input type="text" placeholder="Add text" onChange={(e)=> setPorpuse(e.target.value)}></input>
             <label>Amount</label>
-            <input type="number" placeholder="Add amount" onChange={(e)=> transaction={...transaction,amount:e.target.value}}></input>
+            <input type="number" placeholder="Add amount" onChange={(e)=> setAmount(parseInt(e.target.value))}></input>
             <label>Category</label>
-            <select name="Category" onChange={(e)=> transaction={...transaction,categoryId:e.target.value}}>
+            <select name="Category" onChange={(e)=> setCategoryId(parseInt( e.target.value))}>
                {load && categories.map(c => (
                 <option key={c.id} value={c.id}>{c.name}</option>
                ))}
             </select>
-            <button onClick={() => transaction={...transaction,type:0}}>Income</button>
-            <button onClick={() => transaction={...transaction,type:1}}>Spend</button>
-            <button onClick={handleModal} className="bg-black">Cancel</button>
-            <button onClick={post} className="bg-black">Save</button>
+            <button type="button" onClick={() => setType(0)}>Income</button>
+            <button type="button" onClick={() => setType(1)}>Spend</button>
+            <button type="button" onClick={handleModal} className="">Cancel</button>
+            <button type="button" onClick={()=>post()} className="">Save</button>
             
         </form>
     )

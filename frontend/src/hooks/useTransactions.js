@@ -1,12 +1,10 @@
-import { useCookies } from "react-cookie";
-
 const { MyContext } = require("@/context/context");
 const { useContext, useState } = require("react");
 
 
 export default function useTransactions(){
  
-    const [cookies, setCookies,removeCookies] = useCookies(['transaction'])
+   
     const {transaction,setTransaction} = useContext(MyContext);
     const [loaded, setLoaded] = useState(false);
     const [error,setError] = useState();
@@ -41,20 +39,34 @@ export default function useTransactions(){
       }
     }
     
-    const postTransaction= async(transaction) =>{
+    const postTransaction= async (transactionID,amount,categoryId,userID,date,porpuse,type) =>{
+ 
       try{
-        const responseCode = await fetch('https://localhost:7091/Transaction',{
-          method: "POST",
+        const responseCode = await fetch('https://localhost:7091/Transaction/create',{
+          method: 'POST',
           headers: {
             "Content-Type": "application/json",
           },
-          body:JSON.stringify (transaction),
+          
+          body:JSON.stringify({
+            transactionID,
+            amount,
+            categoryId,
+            userID,
+            date,
+            porpuse,
+            type
+          })
         })
 
         if(!responseCode.ok){
-          alert("Ha ocurrido un error")
+          alert(`Ha ocurrido un error ${responseCode.status}`)
+          console.log(responseCode.body.getReader)
           throw new Error `Ha ocurrido un error: ${responseCode.status}`
+        }else{
+          alert("La transaction ha sido creada")
         }
+        
       }catch(err){
         console.log(err)
       }
