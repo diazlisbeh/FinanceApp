@@ -1,12 +1,17 @@
 import { MyContext } from "@/context/context";
-import React, { useContext } from "react";
-
+import React, { useContext,useEffect } from "react";
+import useTransactions  from "../hooks/useTransactions";
+import { useCookies } from "react-cookie";
 
 
 function History(){
-    const {transaction} = useContext(MyContext);
-    const {loaded} = useTransactions();
+    const {transaction,userData} = useContext(MyContext);
+    const {loaded,getTransactions} = useTransactions();
+    const [cookies,setCookies] = useCookies(['user'])
 
+    useEffect(() => {
+        getTransactions(cookies.user.id)
+    },[loaded])
     return (
       <>
         <header>
@@ -28,4 +33,4 @@ function History(){
     )
 }
 
-export {History}
+export default History;

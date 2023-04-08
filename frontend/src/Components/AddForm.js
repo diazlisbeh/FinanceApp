@@ -25,7 +25,6 @@ function AddForm({handleModal}){
         setUserID(userData.id)
         setDate(crearFecha())
 
-        
     },[load])
 
     const post =async () =>{
