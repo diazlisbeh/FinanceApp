@@ -4,6 +4,7 @@ using Backend.BLL.Context;
 using System.Collections;
 using Backend.DAL.DTOs;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace Backend.BLL.Services;
 
@@ -36,7 +37,18 @@ public class TransactionService : ITransactionService
             Porpuse = transactionDto.Porpuse,
             Type = transactionDto.Type
         };
+        var user = await _context.users.SingleOrDefaultAsync(u => u.Id == transactionDto.UserID); 
+        
+        if(transactionDto.Type ==0){
+            user.Capital = user.Capital + (decimal)transactionDto.Amount;
+
+        }else{
+            user.Capital = user.Capital - (decimal)transactionDto.Amount;
+
+        }
+        _context.Update(user);
         await _context.Transactions.AddAsync(transaction);
+        
         await _context.SaveChangesAsync();
         return transactionDto;
 

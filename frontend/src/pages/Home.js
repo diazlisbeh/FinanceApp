@@ -16,7 +16,6 @@ export default function Home(){
     const {getTransactions,loaded,error} = useTransactions();
     const [isOpen, setIsOpen] = useState(false);
     const router = useRouter();
-    let colorRed = "text-red";
     
     const {getCategories,load} = useCategories();
 
@@ -62,7 +61,7 @@ export default function Home(){
             {loaded &&   (
                 <div className="contaner flex flex-col ">
                     {transaction.map((p) => {
-                         let color = `type-${p.type}`
+                     
                          return(
                         <ul role="list" class="px-8 divide-y divide-gray-200 dark:divide-gray-700 ">
                         <li class="py-3 sm:py-4">
