@@ -23,7 +23,7 @@ function Login() {
 
     useEffect(()=>{
         if(typeof cookies.user == 'object' ){
-            router.push('/Home')
+            // router.push('/Home')
         }
     })
 

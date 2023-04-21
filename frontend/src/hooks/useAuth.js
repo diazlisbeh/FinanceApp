@@ -9,7 +9,7 @@ export default function useAuth() {
   const login = async (email, password) => {
   
     try{
-    const response = await fetch("https://localhost:7091/User/login", {
+    const response = await fetch("https://icy-stone-5611da74feb14c1c9f66a71dc39c3d26.azurewebsites.net/User/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

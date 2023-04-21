@@ -9,7 +9,7 @@ function useCategories(){
 
     const getCategories = async() =>{
 
-        const response = await fetch('https://localhost:7091/Category',{
+        const response = await fetch('https://icy-stone-5611da74feb14c1c9f66a71dc39c3d26.azurewebsites.net/Category',{
             method: "GET",
             headers: {
               "Content-Type": "application/json",

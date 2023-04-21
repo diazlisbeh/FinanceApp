@@ -14,9 +14,9 @@ export default function useTransactions(){
         console.log(`no paso nah ${id}`)
         return {Error: "The Id is undefied"}
       }else{
-
+       
       try{
-        const response = await fetch(`https://localhost:7091/Transaction/${id}`,{
+        const response = await fetch(`https://icy-stone-5611da74feb14c1c9f66a71dc39c3d26.azurewebsites.net/Transaction/${id}`,{
 
           method: "GET",
           headers: {
@@ -42,7 +42,7 @@ export default function useTransactions(){
     const postTransaction= async (transactionID,amount,categoryId,userID,date,porpuse,type) =>{
  
       try{
-        const responseCode = await fetch('https://localhost:7091/Transaction/create',{
+        const responseCode = await fetch('https://icy-stone-5611da74feb14c1c9f66a71dc39c3d26.azurewebsites.net/Transaction/create',{
           method: 'POST',
           headers: {
             "Content-Type": "application/json",

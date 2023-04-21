@@ -8,7 +8,7 @@ export  function useRegister(){
 
   const register = async (user) =>{
   try{
-    const response = await  fetch('https://localhost:7091/User/register',{
+    const response = await  fetch('https://icy-stone-5611da74feb14c1c9f66a71dc39c3d26.azurewebsites.net/User/register',{
 
       method: "POST",
       headers: {
