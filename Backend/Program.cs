@@ -11,7 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.IdentityModel.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("my");
+var connectionString = builder.Configuration.GetConnectionString("pro");
 var policy = "WebPolicy";
 //Dependy Injection to Database
 builder.Services.AddDbContext<FinanceContext>(options =>

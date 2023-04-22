@@ -1,12 +1,11 @@
 import React, { useEffect,useState } from "react";
-import { MyContext } from "@/context/context";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useCookies } from "react-cookie";
 import useAuth, {login} from "@/hooks/useAuth";
 function Login() {
     
-    const {userData,setUserData} = React.useContext(MyContext);
+   
     const [cookies, setCookies] = useCookies(['user'])
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -14,11 +13,8 @@ function Login() {
     const {login} = useAuth();
 
     const onLogin = async()=>{
-
         await login(email,password)
         router.push('/Home')
-        console.log({email,password})
-
     }
 
     useEffect(()=>{

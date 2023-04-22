@@ -11,8 +11,7 @@ export default function useTransactions(){
    
     const getTransactions = async (id) =>{
       if(typeof id != 'number'){
-        console.log(`no paso nah ${id}`)
-        return {Error: "The Id is undefied"}
+      return {Error: "The Id is undefied"}
       }else{
        
       try{
@@ -29,8 +28,6 @@ export default function useTransactions(){
         const data = await response.json()
           setTransaction(data)
           setLoaded(true)
-          console.log(data)
-          
         } 
         catch(err){
           setError(err)
@@ -61,7 +58,6 @@ export default function useTransactions(){
 
         if(!responseCode.ok){
           alert(`Ha ocurrido un error ${responseCode.status}`)
-          console.log(responseCode.body.getReader)
           throw new Error `Ha ocurrido un error: ${responseCode.status}`
         }else{
           alert("La transaction ha sido creada")
