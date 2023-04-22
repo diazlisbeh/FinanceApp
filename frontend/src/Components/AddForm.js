@@ -43,22 +43,36 @@ function AddForm({handleModal}){
     }
 
     return(
-        <form>
-            <label>Porpuse</label>
-            <input type="text" placeholder="Add text" onChange={(e)=> setPorpuse(e.target.value)}></input>
-            <label>Amount</label>
-            <input type="number" placeholder="Add amount" onChange={(e)=> setAmount(parseInt(e.target.value))}></input>
-            <label>Category</label>
-            <select name="Category" onChange={(e)=> setCategoryId(parseInt( e.target.value))}>
+        <form className="font-bold">
+            
+            <label className="block mb-2 text-lg font-bold text-gray-900 dark:text-white">Porpuse</label>
+            <input type="text" placeholder="Add text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                onChange={(e)=> setPorpuse(e.target.value)} required></input>
+            
+            <label className="block mb-2 text-lg font-bold text-gray-900 dark:text-white">Amount</label>
+            <input type="number" placeholder="Add amount" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                onChange={(e)=> setAmount(parseInt(e.target.value))}></input>
+            
+            <label className="block mb-2 text-lg font-bold text-gray-900 dark:text-white">Category</label>
+            <select name="Category" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            onChange={(e)=> setCategoryId(parseInt( e.target.value))}>
                {load && categories.map(c => (
                 <option key={c.id} value={c.id}>{c.name}</option>
                ))}
             </select>
-            <button type="button" onClick={() => setType(0)}>Income</button>
-            <button type="button" onClick={() => setType(1)}>Spend</button>
-            <button type="button" onClick={handleModal} className="">Cancel</button>
-            <button type="button" onClick={()=>post()} className="">Save</button>
-            
+            <div className="grid grid-cols-2 justify-items-center">
+                <button type="button" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" 
+                    onClick={() => setType(0)}>Income</button>
+
+                <button type="button" className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                    onClick={() => setType(1)}>Spend</button>
+
+                <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" 
+                    onClick={handleModal} >Cancel</button>
+
+                <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-12 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" 
+                    onClick={()=>post()} >Save</button>
+            </div>
         </form>
     )
 }

@@ -39,8 +39,7 @@ export default function Home(){
             router.push('/Login')
         }else{
         getTransactions(cookies.user.id)
-        console.log(transaction)
-        console.log(loaded)
+        
         }
     },[loaded])
 
@@ -49,15 +48,15 @@ export default function Home(){
         <header>
             <nav className="container none flex justify-between mb-5">
                 <div className="pt-3 pl-3 mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl ">FinanceApp</div>
-                <div className="pt-2 pr-2 " onClick={()=> router.push('/Profile')}><ion-icon name="person-circle-outline" className="text-lg"></ion-icon></div>
+                <div className="pt-2 pr-2 text-4xl " onClick={()=> router.push('/Profile')}><ion-icon name="person-circle-outline" className="text-lg"></ion-icon></div>
              
             </nav>
-            <div className="flex justify-center">{ userData.capital}</div>
+            <div className="flex justify-center text-4xl py-2 font-medium">${ userData.capital}</div>
         </header>
         
-        <section>
+        <section className="h-3/4">
             {loaded &&   (
-                <div className="contaner flex flex-col ">
+                <div className="contaner flex flex-col max-h-90 overflow-y-scroll h-96">
                     {transaction.map((p) => {
                      
                          return(
@@ -86,10 +85,10 @@ export default function Home(){
             )}
         </section>
 
-        <footer className="">
-            <div onClick={handleClose}><ion-icon name="add-circle-outline"></ion-icon></div>
-            <div onClick={()=> router.push('/History')}><ion-icon name="timer-outline"></ion-icon></div>
-            <div><ion-icon name="wallet-outline"></ion-icon></div>
+        <footer className="bg-white rounded-lg shadow m-4 flex justify-around">
+            <div onClick={()=> router.push('/History')} className="text-5xl"><ion-icon name="timer-outline"></ion-icon></div>
+            <div onClick={handleClose} className="text-5xl"><ion-icon name="add-circle-outline"></ion-icon></div>
+            <div className="text-5xl"><ion-icon name="wallet-outline" ></ion-icon></div>
         </footer>
 
         <Modal isOpen={isOpen}

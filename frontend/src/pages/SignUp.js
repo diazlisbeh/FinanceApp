@@ -1,13 +1,11 @@
-import { MyContext } from "@/context/context";
 import React from "react";
-import { useContext } from "react";
 import Link from "next/link";
 import { useRouter } from 'next/router';
 import {useRegister} from "@/hooks/useResgister"
 
 
 export default function SignUp(){
-//    const {register} = useContext(MyContext);
+
     const router = useRouter()
     const {register} = useRegister();
     const user = {
