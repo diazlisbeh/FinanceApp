@@ -16,7 +16,7 @@ function Login() {
     const onLogin = async()=>{
 
         await login(email,password)
-        //router.push('/Home')
+        router.push('/Home')
         console.log({email,password})
 
     }
@@ -43,11 +43,11 @@ function Login() {
                     onChange={(e) =>  setPassword(e.target.value)}></input>
                 </div>
             </div>
-            <div className="px-6 mb-4">
-                <button onClick={()=>onLogin()} type="submit" className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">LogIn</button>
-            </div>
+          
         </form>
-       
+        <div className="px-6 mb-4">
+                <button onClick={()=>onLogin()} type="button" className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">LogIn</button>
+            </div>
         <p > Don't have an account? <Link className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             href={{pathname:'/SignUp'}}>Sign Up</Link>
             </p>
