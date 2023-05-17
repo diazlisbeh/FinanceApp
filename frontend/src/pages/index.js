@@ -14,12 +14,11 @@ const {login}  = useContext(MyContext);
 
 useEffect(()=>{
   router.push('/Login')
-})
+},[])
 
   return (
     <>
-    <p>Vamo a ver klk</p>
-    <button onClick={() => router.push('/Login')}>dale bro</button>
+   <h1> Welcome!!! </h1>
     </>
   )
 }
